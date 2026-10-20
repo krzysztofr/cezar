@@ -360,7 +360,7 @@ ${http2Block}
         proxy_pass http://127.0.0.1:${port};
         proxy_http_version 1.1;
         # $http_host keeps a forwarded port (box:8080 -> :80); $host drops it and
-        # cezar's same-origin guard then rejects every write against Origin.
+        # cezar's same-origin guard then rejects every write against Origin (#426).
         proxy_set_header Host $http_host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
